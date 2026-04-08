@@ -30,6 +30,8 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 const authRoutes = require('./routes/auth.routes');
 const bookRoutes = require('./routes/book.routes');
 const transactionRoutes = require('./routes/transaction.routes');
+const categoryRoutes = require('./routes/category.routes');
+const userRoutes = require('./routes/user.routes');
 
 app.get('/', (req, res) => {
   res.status(200).json({
@@ -40,6 +42,8 @@ app.get('/', (req, res) => {
 
 // Configure API Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/categories', categoryRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/transactions', transactionRoutes);
 
