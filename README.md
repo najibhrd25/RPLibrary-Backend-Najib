@@ -52,6 +52,33 @@ Jika muncul `🚀 RPLibrary API is running perfectly on http://localhost:3000`, 
 
 ---
 
+## 📌 Endpoint API
+
+Berikut adalah daftar endpoint. **Gunakan file `RPLibrary.postman_collection.json` untuk testing yang instan tanpa harus set manual.**
+
+### 1. Authentication
+| Method | Endpoint | Description | Access |
+| ------ | -------- | ----------- | ------ |
+| POST | `/api/auth/register` | Mendaftarkan akun member baru. | Public |
+| POST | `/api/auth/login` | Login user (Admin / Member). | Public |
+
+### 2. Books Management
+| Method | Endpoint | Description | Access |
+| ------ | -------- | ----------- | ------ |
+| GET | `/api/books` | Melihat seluruh buku. Bisa filter `?title=` atau `?categoryId=`. | Public |
+| POST | `/api/books` | Menambah buku (Form Data `coverImage`). | Admin |
+| PUT | `/api/books/:id` | Mengubah buku (beserta ganti cover). | Admin |
+| DELETE | `/api/books/:id` | Menghapus buku beserta file cover. | Admin |
+
+### 3. Borrowing System (Transaction)
+| Method | Endpoint | Description | Access |
+| ------ | -------- | ----------- | ------ |
+| GET | `/api/transactions` | Melihat riwayat transaksi (Admin: Semua, Member: Milik sendiri). | Admin / Member |
+| POST | `/api/transactions/borrow` | Meminjam buku (Otomatis kurangi stock). | Member |
+| PUT | `/api/transactions/:id/return` | Mengonfirmasi klaim pengembalian (Stock kembali bertambah). | Admin |
+
+---
+
 ### 5. Pengujian API dengan Postman
 
 Agar pengujian lebih mudah, sebuah file konfigurasi Postman Collection telah disertakan:
