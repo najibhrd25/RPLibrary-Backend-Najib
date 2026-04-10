@@ -1,12 +1,15 @@
+const { Pool } = require('pg');
+const { PrismaPg } = require('@prisma/adapter-pg');
 const { PrismaClient } = require('@prisma/client');
 
 /**
- * Initializes the Prisma Client.
- * We can pass configuration here to log queries if we are debugging.
+ * Initializes the Prisma Client with a PostgreSQL adapter.
+ * This is the required pattern for Prisma 7 with direct database connections.
  */
-const prisma = new PrismaClient({
-  // Uncomment the line below to see all SQL queries printed in the console
-  // log: ['query', 'info', 'warn', 'error'],
-});
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({ connectionString });
+const adapter = new PrismaPg(pool);
+
+const prisma = new PrismaClient({ adapter });
 
 module.exports = prisma;
