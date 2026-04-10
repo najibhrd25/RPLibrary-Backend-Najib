@@ -3,7 +3,7 @@ const router = express.Router();
 
 const categoryController = require('../controllers/category.controller');
 const { auth, isAdmin } = require('../middlewares/auth.middleware');
-const { validate } = require('../validators/auth.validator'); // Reusing the validate middleware
+const validate = require('../middlewares/validate.middleware');
 const { categorySchema } = require('../validators/category.validator');
 
 // @route   GET /api/categories

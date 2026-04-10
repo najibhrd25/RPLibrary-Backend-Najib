@@ -4,7 +4,8 @@ const router = express.Router();
 const bookController = require('../controllers/book.controller');
 const upload = require('../middlewares/upload.middleware');
 const { auth, isAdmin } = require('../middlewares/auth.middleware');
-const { validate, createBookSchema, updateBookSchema } = require('../validators/book.validator');
+const validate = require('../middlewares/validate.middleware');
+const { createBookSchema, updateBookSchema } = require('../validators/book.validator');
 
 // @route   GET /api/books
 // @desc    Get all books (Public or Member - here anyone can view, or adjust if Member only)

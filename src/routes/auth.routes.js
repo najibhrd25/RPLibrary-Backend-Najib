@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const authController = require('../controllers/auth.controller');
-const { validate, registerSchema, loginSchema } = require('../validators/auth.validator');
+const validate = require('../middlewares/validate.middleware');
+const { registerSchema, loginSchema } = require('../validators/auth.validator');
 
 // Register a new member
 // Route: POST /api/auth/register

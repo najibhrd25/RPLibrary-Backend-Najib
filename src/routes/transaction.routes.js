@@ -3,7 +3,7 @@ const router = express.Router();
 
 const transactionController = require('../controllers/transaction.controller');
 const { auth, isAdmin } = require('../middlewares/auth.middleware');
-const { validate } = require('../validators/auth.validator'); // Reusing auth validate block
+const validate = require('../middlewares/validate.middleware');
 const { borrowSchema } = require('../validators/transaction.validator');
 
 // @route   GET /api/transactions
