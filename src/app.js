@@ -1,10 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const dotenv = require('dotenv');
-
-// Load environment variables
-dotenv.config();
 
 const app = express();
 
@@ -40,19 +36,26 @@ app.get('/', (req, res) => {
   });
 });
 
-// Configure API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/categories', categoryRoutes);
-app.use('/api/books', bookRoutes);
-app.use('/api/transactions', transactionRoutes);
+// Configure API Routes (Supporting both /api prefix and root level for Postman compatibility)
+const apiRoutes = [
+  { path: '/auth', router: authRoutes },
+  { path: '/users', router: userRoutes },
+  { path: '/categories', router: categoryRoutes },
+  { path: '/books', router: bookRoutes },
+  { path: '/transactions', router: transactionRoutes },
+];
+
+apiRoutes.forEach((route) => {
+  app.use(`/api${route.path}`, route.router); // Support /api/example
+  app.use(route.path, route.router);          // Support /example (for Postman compatibility)
+});
 
 // ==========================================
 // 4. FALLBACK & ERROR HANDLING
 // ==========================================
 
 // Handle 404 Not Found
-app.all('*', (req, res, next) => {
+app.use((req, res, next) => {
   res.status(404).json({
     status: 'error',
     message: `Cannot find ${req.method} ${req.originalUrl} on this server.`,

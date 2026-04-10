@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const prisma = require('../utils/prisma');
+const config = require('../config/env');
 
 /**
  * Authentication Middleware
@@ -21,7 +22,7 @@ const auth = async (req, res, next) => {
     }
 
     // 2) Verify token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, config.jwtSecret);
 
     // 3) Check if user still exists (in case user was deleted but token is still active)
     const currentUser = await prisma.user.findUnique({

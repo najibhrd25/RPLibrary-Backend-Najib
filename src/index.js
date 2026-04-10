@@ -1,10 +1,7 @@
+const config = require('./config/env');
 const app = require('./app');
-const dotenv = require('dotenv');
 
-// Ensure the environment variables are loaded before server starts
-dotenv.config();
-
-const PORT = process.env.PORT || 3000;
+const PORT = config.port;
 
 // Start the Express server gracefully
 const server = app.listen(PORT, () => {

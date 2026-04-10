@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const prisma = require('../utils/prisma');
+const config = require('../config/env');
 
 /**
  * Register a new user (Member)
@@ -82,7 +83,7 @@ const login = async (req, res, next) => {
     // Generate JWT token
     const token = jwt.sign(
       { id: user.id, role: user.role },
-      process.env.JWT_SECRET,
+      config.jwtSecret,
       { expiresIn: '1d' } // Token expires in 1 day
     );
 
