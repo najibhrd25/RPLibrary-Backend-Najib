@@ -52,30 +52,94 @@ Jika muncul `🚀 RPLibrary API is running perfectly on http://localhost:3000`, 
 
 ---
 
-## 📌 Endpoint API
+### 5. Pengujian API dengan Postman
 
-Berikut adalah daftar endpoint. **Gunakan file `RPLibrary.postman_collection.json` untuk testing yang instan tanpa harus set manual.**
+Agar pengujian lebih mudah, sebuah file konfigurasi Postman Collection telah disertakan:
 
-### 1. Authentication
-| Method | Endpoint | Description | Access |
-| ------ | -------- | ----------- | ------ |
-| POST | `/api/auth/register` | Mendaftarkan akun member baru. | Public |
-| POST | `/api/auth/login` | Login user (Admin / Member). | Public |
+1. Buka aplikasi **Postman**.
+2. Klik **Import** -> Pilih file `RPLibrary.postman_collection.json` yang ada di root direktori proyek ini.
+3. Di dalam collection tersebut, Anda akan menemukan daftar endpoint Auth, Books, Transactions, dll.
+4. **Penting (Authorization)**: Setiap request mewarisi Token dari setting collection (`Inherit auth from parent`). Pastikan untuk menyalin token JWT hasil **Login** ke tab Authorization (pilih Bearer Token) di tingkat Collection atau pada request yang bersangkutan.
 
-### 2. Books Management
-| Method | Endpoint | Description | Access |
-| ------ | -------- | ----------- | ------ |
-| GET | `/api/books` | Melihat seluruh buku. Bisa filter `?title=` atau `?categoryId=`. | Public |
-| POST | `/api/books` | Menambah buku (Form Data `coverImage`). | Admin |
-| PUT | `/api/books/:id` | Mengubah buku (beserta ganti cover). | Admin |
-| DELETE | `/api/books/:id` | Menghapus buku beserta file cover. | Admin |
+### 6. Cara Upload Cover Image di Postman (atau menggunakan cURL)
+Jika ingin menguji upload foto untuk penambahan Buku atau Ganti Profil, pastikan Anda menggunakan **form-data** pada Postman:
+1. Masuk ke request (misal: POST `/api/books` atau PUT `/api/users/me/profile-picture`).
+2. Masuk ke tab **Body** lalu pilih **form-data**.
+3. Di kolom KEY, ketik `coverImage` (untuk buku) atau `profileImage` (untuk profil).
+4. Ubah tipe KEY dari `Text` menjadi `File` di dropdown sebelah kanan tulisan KEY.
+5. Klik **Select Files** lalu cari gambar yang ingin diupload. Isikan data lainnya seperti biasa.
+6. Lalu tekan **Send**.
 
-### 3. Borrowing System (Transaction)
-| Method | Endpoint | Description | Access |
-| ------ | -------- | ----------- | ------ |
-| GET | `/api/transactions` | Melihat riwayat transaksi (Admin: Semua, Member: Milik sendiri). | Admin / Member |
-| POST | `/api/transactions/borrow` | Meminjam buku (Otomatis kurangi stock). | Member |
-| PUT | `/api/transactions/:id/return` | Mengonfirmasi klaim pengembalian (Stock kembali bertambah). | Admin |
+Atau, jika menggunakan terminal (cURL), contoh eksekusinya:
+```bash
+curl -X POST http://localhost:3000/api/books \
+  -H "Authorization: Bearer <TOKEN_ADMIN>" \
+  -F "title=Belajar Node.js" \
+  -F "stock=10" \
+  -F "categoryId=1" \
+  -F "coverImage=@/lokasi/gambar/komputer/anda.jpg"
+```
 
 ---
-*Dibuat oleh Tim Spesial untuk Seleksi Admin Lab RPL ITS 2026.*
+
+## 📸 Bukti Implementasi & Pengujian
+
+Berikut ini adalah rangkaian screenshot yang membuktikan fungsionalitas dan konfigurasi database dari proyek RPLibrary:
+
+### Tahap 1: Persiapan Database
+**1. DBngin PostgreSQL Berjalan di Port 5433**
+![DBngin Status](./dokumentasi/1.png)
+
+**2. Koneksi ke TablePlus**
+![TablePlus Setup](./dokumentasi/2.png)
+
+**3. Konfigurasi Environment & Push Prisma**
+![Prisma DB Push](./dokumentasi/3.png)
+
+**4. TablePlus Koneksi Berhasil & Kosong (Ready)**
+![TablePlus Ready](./dokumentasi/4.png)
+
+**5. Server Berjalan Normal**
+![Nodemon Server](./dokumentasi/5.png)
+
+---
+
+### Tahap 2: Autentikasi Pengguna
+**6. Register Member Berhasil (POST `/api/auth/register`)**
+![Register Member](./dokumentasi/6.png)
+
+**7. Login Berhasil Mendapatkan JWT Token (POST `/api/auth/login`)**
+![Login Success](./dokumentasi/7.png)
+
+**8. Konfigurasi Authorization Postman (`Inherit From Parent`)**
+![Auth Setup Postman](./dokumentasi/8.png)
+
+---
+
+### Tahap 3: Role Based Access & Entitas
+**9. Pengujian Role: Gagal Create Category karena bukan ADMIN**
+![Forbidden Request](./dokumentasi/9.png)
+
+**10. Admin Berhasil Membuat Kategori (POST `/api/categories`)**
+![Create Category Success](./dokumentasi/10.png)
+
+**11. Admin Berhasil Membuat Buku (POST `/api/books`)**
+![Create Book Success](./dokumentasi/11.png)
+
+---
+
+### Tahap 4: Sistem Transaksi & Profil
+**12. Member Berhasil Meminjam Buku (POST `/api/transactions/borrow`)**
+![Borrow Book](./dokumentasi/12.png)
+
+**13. Admin Mengonfirmasi Pengembalian Buku (PUT `/api/transactions/:id/return`)**
+![Return Book](./dokumentasi/13.png)
+
+**14. Mengambil Semua Daftar Buku (GET `/api/books`)**
+![Get All Books](./dokumentasi/14.png)
+
+**15. Fitur Melihat Profil Sendiri (GET `/api/users/me`)**
+![Get My Profile](./dokumentasi/15.png)
+
+---
+*Dibuat oleh Tim Spesial untuk Seleksi Admin Lab RPL ITS 2026. Deployment Readiness Checked! 🎉*
