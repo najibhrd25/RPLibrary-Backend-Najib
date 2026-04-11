@@ -153,6 +153,9 @@ Berikut ini adalah rangkaian screenshot yang membuktikan fungsionalitas dan konf
 **11. Admin Berhasil Membuat Buku (POST `/api/books`)**
 ![Create Book Success](./dokumentasi/11.png)
 
+**12. Upload Cover Image Buku Berhasil via Form-Data (POST `/api/books`)**
+![Upload Cover Image](./dokumentasi/UploadFoto.png)
+
 ---
 
 ### Tahap 4: Sistem Transaksi & Profil
