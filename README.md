@@ -366,10 +366,6 @@ Berikut ini adalah rangkaian screenshot beserta langkah-langkah yang membuktikan
 
 ---
 
-*Dibuat oleh Tim Spesial untuk Seleksi Admin Lab RPL ITS 2026. Deployment Readiness Checked! 🎉*
-
----
-
 ---
 
 ### 🌐 Live Demo & Inisiatif Fullstack
@@ -379,7 +375,10 @@ Tujuan utama saya adalah agar siapa pun yang melihat demo ini dapat langsung mem
 
 🚀 **[Kunjungi RPLibrary Web App](https://rpl-library-fullstack.vercel.app/)**
 
-*Proyek ini dikembangkan secara mandiri sebagai wujud dedikasi untuk memberikan solusi perpustakaan digital yang tidak hanya fungsional secara sistem, tapi juga premium dalam pengalaman pengguna.*
+---
+
+*Dibuat dengan penuh dedikasi oleh Najib untuk Seleksi Admin Lab RPL ITS 2026. Deployment Readiness Checked! 🎉*
+
 
 
 
