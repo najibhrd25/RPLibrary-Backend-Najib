@@ -377,7 +377,8 @@ Tujuan utama saya adalah agar siapa pun yang melihat demo ini dapat langsung mem
 
 ---
 
-*Dibuat dengan penuh dedikasi oleh Najib untuk Seleksi Admin Lab RPL ITS 2026. Deployment Readiness Checked! 🎉*
+*Dibuat dengan penuh dedikasi untuk Seleksi Admin Lab RPL ITS 2026. Deployment Readiness Checked!*
+
 
 
 
