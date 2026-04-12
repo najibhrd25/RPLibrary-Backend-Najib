@@ -11,6 +11,14 @@ Proyek ini adalah API backend untuk sistem manajemen perpustakaan **RPLibrary**,
 - **Auth**: JWT (JSON Web Token) & `bcryptjs`
 - **File Upload**: Multer
 
+### 💡 Justifikasi Pemilihan Tech Stack
+Pemilihan stack ini didasarkan pada efisiensi pengembangan dan keamanan sistem:
+1. **Express.js**: Framework minimalis yang sangat fleksibel untuk arsitektur modular, memudahkan pemisahan antara router, controller, dan middleware.
+2. **Prisma ORM**: Memberikan *Type-safety* yang kuat, memudahkan manajemen migrasi database, dan mencegah kesalahan query manual (SQL Injection protection).
+3. **bcryptjs**: Dipilih karena fungsionalitasnya yang stabil di berbagai OS (terutama macOS) tanpa ketergantungan pada native build tools yang kompleks seperti `bcrypt` standar.
+4. **Zod**: Digunakan sebagai *validation schema* tunggal baik untuk *Environment Variables* maupun *Request Body*, memastikan data yang masuk ke sistem selalu valid dan bersih.
+5. **JWT (JSON Web Token)**: Standar industri untuk autentikasi *stateless*, memungkinkan skalabilitas aplikasi di masa depan.
+
 ---
 
 ## 🛠 Instalasi & Cara Menjalankan Server di macOS
@@ -359,4 +367,14 @@ Berikut ini adalah rangkaian screenshot beserta langkah-langkah yang membuktikan
 ---
 
 *Dibuat oleh Tim Spesial untuk Seleksi Admin Lab RPL ITS 2026. Deployment Readiness Checked! 🎉*
+
+---
+
+### 🌐 Live Demo & Fullstack Integration
+Proyek API ini bukan sekadar backend mentah, melainkan jantung dari ekosistem perpustakaan digital yang sudah diimplementasikan secara nyata. Anda dapat mencoba antarmuka pengguna (UI) yang memanfaatkan API ini melalui tautan berikut:
+
+🚀 **[Kunjungi RPLibrary Web App](https://rpl-library-fullstack.vercel.app/)**
+
+Aplikasi web tersebut merupakan versi **Fullstack** yang dikembangkan menggunakan API ini sebagai tulang punggungnya, menghadirkan pengalaman manajemen perpustakaan yang modern, responsif, dan siap guna.
+
 
