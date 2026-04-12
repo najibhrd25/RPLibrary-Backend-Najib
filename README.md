@@ -370,11 +370,16 @@ Berikut ini adalah rangkaian screenshot beserta langkah-langkah yang membuktikan
 
 ---
 
-### 🌐 Live Demo & Fullstack Integration
-Proyek API ini bukan sekadar backend mentah, melainkan jantung dari ekosistem perpustakaan digital yang sudah diimplementasikan secara nyata. Anda dapat mencoba antarmuka pengguna (UI) yang memanfaatkan API ini melalui tautan berikut:
+---
+
+### 🌐 Live Demo & Inisiatif Fullstack
+Saya percaya bahwa sebuah sistem yang kuat tidak hanya harus berjalan secara logika, tetapi juga harus bisa dirasakan manfaatnya melalui antarmuka yang intuitif dan estetik. Karena bagi saya *backend* tanpa kemasan *frontend* yang mumpuni akan sulit untuk didemonstrasikan nilainya secara maksimal, saya berinisiatif untuk mengembangkan versi **Fullstack** dari proyek ini.
+
+Tujuan utama saya adalah agar siapa pun yang melihat demo ini dapat langsung memahami dan merasakan kemudahan navigasi serta fitur yang ditawarkan oleh **RPLibrary** secara nyata. Anda dapat mencoba pengalaman penuhnya melalui tautan di bawah ini:
 
 🚀 **[Kunjungi RPLibrary Web App](https://rpl-library-fullstack.vercel.app/)**
 
-Aplikasi web tersebut merupakan versi **Fullstack** yang dikembangkan menggunakan API ini sebagai tulang punggungnya, menghadirkan pengalaman manajemen perpustakaan yang modern, responsif, dan siap guna.
+*Proyek ini dikembangkan secara mandiri sebagai wujud dedikasi untuk memberikan solusi perpustakaan digital yang tidak hanya fungsional secara sistem, tapi juga premium dalam pengalaman pengguna.*
+
 
 
